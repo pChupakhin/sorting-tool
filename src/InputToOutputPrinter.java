@@ -68,9 +68,9 @@ public class InputToOutputPrinter {
     }
     
     private String validateData(final String data, final String dataType) {
-        final String NATURAL_NUMBER_REGEX = "-?[1-9]\\d*";
+        final String WHOLE_NUMBER_REGEX = "-?[1-9]\\d*";
         
-        if(!isLong(dataType) || data.matches(NATURAL_NUMBER_REGEX)) {
+        if(!isLong(dataType) || data.matches(WHOLE_NUMBER_REGEX)) {
             return data;
         }
         System.out.print('"' + data + "\" is not a long. It will be skipped.\n");
