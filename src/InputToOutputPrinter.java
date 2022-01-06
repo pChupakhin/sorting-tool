@@ -40,7 +40,7 @@ public class InputToOutputPrinter {
         final int DATA_OCCURRENCE_INCREMENT_VALUE = 1;
         
         final Scanner scanner = inputFile.isFile() ? new Scanner(inputFile) : new Scanner(System.in);
-        return scanner.useDelimiter(getRequiredDelimiter(dataType)).tokens()
+        return scanner.useDelimiter(getSuitableDelimiter(dataType)).tokens()
                 .map(data -> validateData(data, dataType))
                 .sorted(isLong(dataType) ? Comparator.comparingLong(Long::valueOf) : String::compareToIgnoreCase)
                 .map(data -> Map.entry(data, DATA_OCCURRENCE_INCREMENT_VALUE))
@@ -77,7 +77,7 @@ public class InputToOutputPrinter {
         return "";
     }
     
-    private String getRequiredDelimiter(String dataType) {
+    private String getSuitableDelimiter(String dataType) {
         return isLine(dataType) ? "\n" : "(?> +|\n)";
     }
     
