@@ -2,9 +2,11 @@ import java.io.IOException;
 
 public class Main {
     
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
+        final var handler = new CommandLineArgumentsHandler(args);
         try {
-            new InputToOutputPrinter(new CommandLineArgumentsHandler(args)).print();
+            final var printer = new InputToOutputPrinter(handler);
+            printer.print();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
