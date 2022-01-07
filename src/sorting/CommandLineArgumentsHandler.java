@@ -2,7 +2,6 @@ package sorting;
 
 import java.io.File;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class CommandLineArgumentsHandler {
@@ -60,10 +59,10 @@ public class CommandLineArgumentsHandler {
     }
     
     private List<String> getConstantCaseOptions(final List<String> validArgs) {
-        return validArgs.stream().filter(this::isOption).map(this::toConstantCase).collect(Collectors.toList());
+        return validArgs.stream().filter(this::isOption).map(this::toConstantCase).toList();
     }
     private List<String> getConstantCaseParameters(final List<String> validArgs) {
-        return validArgs.stream().filter(this::isParameter).map(this::toConstantCase).collect(Collectors.toList());
+        return validArgs.stream().filter(this::isParameter).map(this::toConstantCase).toList();
     }
     
     private String toConstantCase(final String arg) {
