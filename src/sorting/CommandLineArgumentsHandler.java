@@ -51,7 +51,7 @@ public class CommandLineArgumentsHandler {
     
     private List<String> getValidArgs(final String[] args) {
         final String EXECUTABLE_PAIR_OF_OPTION_AND_ARGUMENT_REGEX
-                = "-(?>(?>data|sorting)Type|(?>in|out)putFile)(?: \\w+(?:\\.\\w&&[^_]{2,4})?)?";
+                = "-(?>(?>data|sorting)Type|(?>in|out)putFile)(?: \\w+(?:\\.[\\w&&[^_]]{2,4})?)?";
         return Stream.of(String.join(" ", args).split(" (?=-)"))
                 .filter(inputArgsPair -> inputArgsPair.matches(EXECUTABLE_PAIR_OF_OPTION_AND_ARGUMENT_REGEX))
                 .flatMap(validArgsPair -> Stream.of(validArgsPair.split(" ")))
